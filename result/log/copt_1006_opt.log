@@ -1,0 +1,120 @@
+Setting log file to result/log/copt_1006_opt.log
+Setting parameter 'Logging' to 1
+Model fingerprint: 7af7a220
+
+Using Cardinal Optimizer v7.0.6 on Windows
+Hardware has 8 cores and 16 threads. Using instruction set X86_AVX2 (10)
+Maximizing a MIP problem
+
+The original problem has:
+    3863 rows, 3844 columns and 18340 non-zero elements
+    216 binaries
+
+Presolving the problem
+
+The presolved problem has:
+    2424 rows, 538 columns and 11598 non-zero elements
+    110 binaries
+
+Starting the MIP solver with 16 threads and 32 tasks
+
+     Nodes    Active  LPit/n  IntInf     BestBound  BestSolution    Gap   Time
+         0         1      --       0  7.643750e+04            --    Inf  0.16s
+         0         1      --      62  2.665646e+04            --    Inf  0.27s
+         0         1      --      67  2.658074e+04            --    Inf  0.32s
+         0         1      --      71  2.655638e+04            --    Inf  0.33s
+         0         1      --      73  2.653632e+04            --    Inf  0.34s
+         0         1      --      69  2.641507e+04            --    Inf  0.35s
+         0         1      --      63  2.638789e+04            --    Inf  0.36s
+         0         1      --      63  2.635059e+04            --    Inf  0.37s
+         0         1      --      65  2.634303e+04            --    Inf  0.37s
+         0         1      --      59  2.632538e+04            --    Inf  0.38s
+         0         1      --      61  2.632073e+04            --    Inf  0.39s
+         0         1      --      60  2.632073e+04            --    Inf  0.40s
+         0         1      --      59  2.632059e+04            --    Inf  0.40s
+         0         1      --      59  2.632050e+04            --    Inf  0.41s
+         0         1      --      59  2.631907e+04            --    Inf  0.41s
+
+     Nodes    Active  LPit/n  IntInf     BestBound  BestSolution    Gap   Time
+         0         1      --      59  2.631907e+04            --    Inf  0.42s
+         0         1      --      59  2.631907e+04            --    Inf  0.42s
+         0         1      --      59  2.631902e+04            --    Inf  0.43s
+         0         1      --      59  2.631902e+04            --    Inf  0.44s
+         0         1      --      59  2.631877e+04            --    Inf  0.44s
+         0         1      --      59  2.631870e+04            --    Inf  0.45s
+         0         1      --      61  2.625163e+04            --    Inf  0.49s
+         0         1      --      59  2.625163e+04            --    Inf  0.52s
+         0         1      --      58  2.623028e+04            --    Inf  0.54s
+         0         1      --      56  2.577649e+04            --    Inf  0.57s
+         0         1      --      53  2.577601e+04            --    Inf  0.58s
+         1         2    1506      53  2.577601e+04            --    Inf  1.23s
+         2         2    1475      45  2.561654e+04            --    Inf  1.60s
+         3         2    1067      43  2.556473e+04            --    Inf  1.61s
+         4         3   839.5      44  2.556473e+04            --    Inf  1.61s
+
+     Nodes    Active  LPit/n  IntInf     BestBound  BestSolution    Gap   Time
+         5         2   690.0      47  2.556165e+04            --    Inf  1.62s
+         6         3   575.3      43  2.556165e+04            --    Inf  1.62s
+         7         5   502.0      42  2.556165e+04            --    Inf  1.62s
+         8         2   450.8      40  2.555811e+04            --    Inf  1.63s
+         9         4   401.1      42  2.555811e+04            --    Inf  1.63s
+        10         6   363.5      41  2.555811e+04            --    Inf  1.63s
+        20        15   213.3      48  2.553152e+04            --    Inf  1.63s
+        30        16   181.4      41  2.551503e+04            --    Inf  1.66s
+        40        29   169.3      44  2.551503e+04            --    Inf  1.66s
+        50        16   154.7      36  2.550102e+04            --    Inf  1.68s
+        60        33   144.2      36  2.550102e+04            --    Inf  1.68s
+        70        41   134.0       0  2.550102e+04            --    Inf  1.68s
+        80        24   126.7      39  2.548350e+04            --    Inf  1.69s
+        90        40   118.2      30  2.548350e+04            --    Inf  1.69s
+       100        60   113.6      37  2.548350e+04            --    Inf  1.69s
+
+     Nodes    Active  LPit/n  IntInf     BestBound  BestSolution    Gap   Time
+       110        40   107.5      33  2.547946e+04            --    Inf  1.71s
+       120        52   106.4      35  2.547946e+04            --    Inf  1.71s
+       130        72   102.6      32  2.547946e+04            --    Inf  1.71s
+       140        58    97.9      21  2.543262e+04            --    Inf  1.72s
+       150        76    96.0      35  2.543262e+04            --    Inf  1.72s
+       160        90    91.5      23  2.543262e+04            --    Inf  1.72s
+       170        72    89.1      40  2.543262e+04            --    Inf  1.76s
+       180        86    87.0      31  2.543262e+04            --    Inf  1.77s
+       190       104    84.2      30  2.543262e+04            --    Inf  1.77s
+       200        84    85.4      26  2.543262e+04            --    Inf  1.80s
+       300       129    74.8      26  2.542869e+04            --    Inf  1.87s
+       400       181    67.3      24  2.542869e+04            --    Inf  1.93s
+H      485       225    63.4      27  2.542869e+04  2.206580e+04  13.2%  2.18s
+       500       213    63.1      11  2.542869e+04  2.206580e+04  13.2%  2.20s
+       600       263    62.3      33  2.539106e+04  2.206580e+04  13.1%  2.33s
+
+     Nodes    Active  LPit/n  IntInf     BestBound  BestSolution    Gap   Time
+       700       309    61.2      13  2.536468e+04  2.206580e+04  13.0%  2.39s
+H      729       307    60.8      33  2.534981e+04  2.372066e+04  6.43%  2.79s
+H      731       311    61.0      13  2.534981e+04  2.478210e+04  2.24%  2.79s
+       800       154    58.8      11  2.527035e+04  2.478210e+04  1.93%  2.82s
+       900       156    55.3      36  2.519640e+04  2.478210e+04  1.64%  2.95s
+      1000       122    52.0      27  2.517988e+04  2.478210e+04  1.58%  3.22s
+*     1081       150    49.6       0  2.517109e+04  2.482112e+04  1.39%  3.26s
+      1100       106    49.0      14  2.517004e+04  2.482112e+04  1.39%  3.28s
+      1200        94    47.7      11  2.515661e+04  2.482112e+04  1.33%  3.33s
+      1300       116    46.4      13  2.514165e+04  2.482112e+04  1.27%  3.37s
+      1400       134    44.3       6  2.512226e+04  2.482112e+04  1.20%  3.40s
+H     1468       136    43.4       5  2.510979e+04  2.482529e+04  1.13%  3.43s
+H     1495       134    42.9       3  2.510099e+04  2.495599e+04  0.58%  3.44s
+      1500       134    42.9       5  2.510099e+04  2.495599e+04  0.58%  3.44s
+      1600         0    41.4      13  2.503462e+04  2.495599e+04  0.31%  3.48s
+
+     Nodes    Active  LPit/n  IntInf     BestBound  BestSolution    Gap   Time
+      1656         0    40.5      10  2.495599e+04  2.495599e+04  0.00%  3.50s
+
+Best solution   : 24955.992949937
+Best bound      : 24955.992949937
+Best gap        : 0.0000%
+Solve time      : 3.50
+Solve node      : 1656
+MIP status      : solved
+Solution status : integer optimal (relative gap limit 0)
+
+Violations      :     absolute     relative
+  bounds        :            0            0
+  rows          :  1.13687e-13  1.13687e-13
+  integrality   :            0
