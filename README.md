@@ -36,15 +36,15 @@ When applied to a benchmark batch process scheduling problem, our approach achie
 3. ***Online* Solution**:
 
    During the online solution pipeline, the solver file for a specific problem background needs slight adjustments as outlined in the paper. These adjustments include adding the following constraints:
-   $$
+   ```math
    \begin{align}
    &\boldsymbol{W}^\top\boldsymbol{h} + \boldsymbol{a} \geq M\cdot(\boldsymbol{u} - \mathbf{1})\\
            &\boldsymbol{W}^\top\boldsymbol{h} + \boldsymbol{a} \leq M\cdot\boldsymbol{u} \\
     \end{align}
-   $$
+   ```
    To provide an intuitive example of the proposed method, we present the MILP formulation of the batch process scheduling problem `solver/bpssolver.py` as discussed in the paper, along with the tightened model  `solver/bpssolver_opt.py` obtained by applying the proposed approach. 
 
-   For solving the target instances, you can just run the code:
+   To solve the target instances, you can just run the code:
 
    ```python
    python solver/bpssolver_opt.py
@@ -56,17 +56,17 @@ When applied to a benchmark batch process scheduling problem, our approach achie
 
 When applied to a benchmark batch process scheduling problem, our approach achieved a reduction in solution time by an order of magnitude while achieving an optimality loss of less than 1%. These findings highlight the effectiveness of AE4BV in enhancing the efficiency and practicality of solving MIPs.
 
-<img src="image/README/Figure_1.png" alt="Figure_1"  />
+<p align="center"><img src="image/README/Figure_1.png" alt="Figure_1"  /></p>
 
-<center>The solution time using Gurobi</center>
+<p align="center">The solution time using Gurobi</p>
 
-<img src="image/README/Figure_2.png" alt="Figure_2" />
+<p align="center"><img src="image/README/Figure_2.png" alt="Figure_2" /></p>
 
-<center>The solution time using COPT</center>
+<p align="center">The solution time using COPT</p>
 
-<img src="image/README/Figure_3.png" alt="Figure_3" />
+<p align="center"><img src="image/README/Figure_3.png" alt="Figure_3" /></p>
 
-<center>The solution time using SCIP</center>
+<p align="center">The solution time using SCIP</p>
 
 ## Citation
 
