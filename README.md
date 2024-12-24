@@ -4,7 +4,8 @@ This repository contains the implementation of the paper: Towards An Unsupervise
 
 [Arxiv](https://arxiv.org/)
 
-<div align=center><img src="image/README/1734947349228.png" alt="1734947349228" style="zoom: 25%;" />
+<center><img src="image/README/1734947349228.png" alt="1734947349228" style="zoom: 25%;" /></center>
+
 
 We presented **a novel L2O scheme** that lies at the intersection of unsupervised learning and operations research. It makes use of **AE4BV** to disentangle the latent structure of binary variables of optimal solutions and accelerate the solution process of a *parametric family* of MIPs. By adding a class of *cutting plane constraints* generated from a trained AE4BV, tightened MIPs can be formulated for new problem instances and then resolved by off-the-shelf solvers with a higher efficiency.
 
