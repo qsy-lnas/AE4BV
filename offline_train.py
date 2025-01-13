@@ -86,12 +86,12 @@ def plot_train(train_loss):
     # plt.savefig('Model/Train_loss_913.jpg')
     plt.show()
 
-def train(model, epochs, batch_size, alpha, savename, data_init = Data_Initializer):
+def train(model, epochs, batch_size, alpha, savename, data_range):
         #加载训练数据
-        train_path = "data/Data_Train_5pt"
-        test_path = "data/Data_Test_5pt"
-        data_train = data_init.generator(train_path, 1000)
-        data_test = data_init.generator(test_path, 200)
+        train_path = f"data/Data_Train_{data_range}"
+        test_path = f"data/Data_Test_{data_range}"
+        data_train = generator(train_path, 1000)
+        data_test = generator(test_path, 200)
         data_train = torch.tensor(data_train).float().to(model.device)
         data_test = torch.tensor(data_test).float().to(model.device)
         #print(data.size())
@@ -134,8 +134,8 @@ def train(model, epochs, batch_size, alpha, savename, data_init = Data_Initializ
             sa_record.append(sa) 
         #保存
         # torch.save(torch.le(wrong, 100), 'Model/{}to{}_int_dim_925.pt'.format(model.int_dim, model.h_dim))
-        torch.save(W, 'Model/{}to{}_W_{}.pt'.format(model.int_dim, model.h_dim, savename))
-        torch.save(a, 'Model/{}to{}_a_{}.pt'.format(model.int_dim, model.h_dim, savename))
+        torch.save(W, 'Model/{}to{}_W_{}_{}.pt'.format(model.int_dim, model.h_dim, data_range, savename))
+        torch.save(a, 'Model/{}to{}_a_{}_{}.pt'.format(model.int_dim, model.h_dim, data_range, savename))
         # torch.save(h, 'Model/{}to{}_h_925.pt'.format(model.int_dim, model.h_dim))
         
         #画图
@@ -147,7 +147,7 @@ def train(model, epochs, batch_size, alpha, savename, data_init = Data_Initializ
         h = np.array(h.cpu().detach())
         
         print("Best HL:  ", np.min(np.array(wrong_record)))
-        print("Best PPO: ", cal_PPO(savename, W, a, test_path))
+        print("Best PPO: ", cal_PPO(data_range, savename, W, a, test_path))
         # print(np.max(sa_record))
         
         pred = W.T @ h.T + a
@@ -209,8 +209,8 @@ def test_in_polytope(param, M_l, M_h, sol):
     else: 
         return 0
 
-def cal_PPO(savename, W, a, testset):
-    param = savename
+def cal_PPO(data_range, savename, W, a, testset):
+    param = data_range + "_" + savename
     M_l = -GRB.INFINITY
     M_h = GRB.INFINITY
     total_valid = 0
@@ -235,6 +235,8 @@ def cal_PPO(savename, W, a, testset):
 if __name__ == "__main__":
     int_dim = 216
     h_dim = 20
+    model_save_name = "default"
+    data_range = "5pt"
     hidden_layer = [20, int_dim, 40, int_dim, 120, int_dim, 180, int_dim, h_dim]
     model = AE4BV(input_dim = int_dim, output_dim = h_dim, hidden_layer = hidden_layer, dropout = 0.2)
-    train(model, epochs = 1000, batch_size = 4, data_init = Data_Initializer, alpha = 2e-4, savename = "default1")
+    train(model, epochs = 1000, batch_size = 4, alpha = 2e-4, savename = model_save_name, data_range= data_range)

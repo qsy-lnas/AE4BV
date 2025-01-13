@@ -70,7 +70,7 @@ for i in tasks:
         else:
             proportions_produced[s, i] = 0
 
-def Solver(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, rnd):
+def Solver(data_range, name, t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, rnd):
     # env = gp.Env(logfilename = f"result/log/gurobi_{rnd}_opt.log")
     env = gp.Env()
     env.setParam("IGNORENAMES", 1)
@@ -169,8 +169,8 @@ def Solver(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15,
     
     #additional constraints
     
-    W = torch.load('Model/216to20_W_default.pt')
-    a = torch.load('Model/216to20_a_default.pt')
+    W = torch.load(f'Model/216to20_W_{data_range}_{name}.pt')
+    a = torch.load(f'Model/216to20_a_{data_range}_{name}.pt')
     
     W = np.array(W.cpu().detach())
     a = np.array(a.cpu().detach()).reshape([-1, 1])
@@ -195,7 +195,7 @@ def Solver(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15,
     
     model.optimize()
     #print(h)
-    model.write(f"data/Data_Problem_5pt_op/{(rnd):0>4}.lp")
+    model.write(f"data/Data_Problem_5pt_op_1/{(rnd):0>4}.lp")
     #save the result
     # model.write(f'data/Data_Optimized_0925/{(rnd):0>4}.sol')
     
@@ -277,26 +277,27 @@ def solve_else(solver, mpspath, logflag = 0, saveflag = 0, mipgap = 0.0, thread 
             return model.getObjVal(), model.getSolvingTime()
 
 if __name__ == "__main__":
-
+    model_save_name = "default"
+    data_range = "5pt"
     for i in range(1000, 1200):
         time_record = []
         opt_record = []
-        initial_data_time = np.load(f'data/Data_Generated_5pt/{(i):0>4}.npz')
+        initial_data_time = np.load(f'data/Data_Generated_{data_range}/{(i):0>4}.npz')
         parameters = []
         
         for key, arr in initial_data_time.items():
             parameters.append(arr[0])
         
         # s = time.time()
-        o, t = Solver(parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6], parameters[7], parameters[8], parameters[9], parameters[10], parameters[11], parameters[12], parameters[13], parameters[14], parameters[15], i)
+        o, t = Solver(data_range, model_save_name, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6], parameters[7], parameters[8], parameters[9], parameters[10], parameters[11], parameters[12], parameters[13], parameters[14], parameters[15], i)
         """ other solver """
         # o, t = solve_else("copt", f'data/Data_Problem_0925_op/{(i):0>4}.lp')
         time_record.append(t)
         opt_record.append(o)
         
-        with open('result/value_optimized_0912_20_gurobi.csv', mode='a', newline='') as file:
+        with open(f'result/value_optimized_{data_range}_gurobi_{model_save_name}.csv', mode='a', newline='') as file:
            writer = csv.writer(file)
            writer.writerow(opt_record)
-        with open('result/time_optimized_0912_20_gurobi.csv', mode='a', newline='') as file:
+        with open(f'result/time_optimized_{data_range}_gurobi_{model_save_name}.csv', mode='a', newline='') as file:
            writer = csv.writer(file)
            writer.writerow(time_record)
